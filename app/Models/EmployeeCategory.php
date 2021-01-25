@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\EmployeeCategoryTrait;
+use App\Models\Traits\EmployeeCategoryTrait;
 
 class EmployeeCategory extends Model
 {

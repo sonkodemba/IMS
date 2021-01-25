@@ -16,10 +16,12 @@ trait EmployeeCategoryTrait{
 	+--------------+-----------------+------+-----+---------+----------------+
 */
 
+
+
 	public function getNameAttribute($name)
 	{
 		# get the @name value from the database
-		return ucfirst($name)
+		return ucfirst($name);
 	}
 
 	public function getDescriptionAttribute($descriptions)
