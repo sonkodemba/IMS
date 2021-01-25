@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\Traits;
+use App\Models\Gender;
 
 trait EmployeeTrait{
 
@@ -36,8 +37,31 @@ trait EmployeeTrait{
 		return strval($name);
 	}
 
-	public function getStaffIDAttribute($staff_id)
+	public function getStaffIdAttribute($staff_id)
 	{
-		
+		return strval($staff_id);
 	}
+
+	public function getGenderId($gender)
+	{
+		$genderInfo = null;
+		# code...
+		$genders= Gender::all();
+		if ($gender -> name == 'Male') {
+			# code...
+			$genderInfo = strchr('M');
+		}
+		else
+		{
+			$genderInfo = strchr('F');
+		}
+		return genderInfo;
+	}
+
+	public function getMaritalStatusAttribute($status)
+	{
+		# code...
+		return ucfirst(strval($status));
+	}
+
 }

@@ -27,4 +27,9 @@ class BranchFormRequestValidation extends FormRequest
             //
         ];
     }
+
+    public function messages()
+    {
+        # code...
+    }
 }
