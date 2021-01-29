@@ -19,7 +19,7 @@ class BranchController extends Controller
      */
     public function index()
     {
-        $branches = Branch::simplePaginate(5);
+        $branches = Branch::latest() -> simplePaginate(5);
         return view('branches.index', compact('branches'));
     }
 
@@ -55,21 +55,23 @@ class BranchController extends Controller
         | created_at  | timestamp       | YES  |     | NULL    |                |
         | updated_at  | timestamp       | YES  |     | NULL    |                |
         +-------------+-----------------+------+-----+---------+----------------+
+        
+        @check the validations.
     */
         $branch = new Branch();
+        $branch -> location_id = request['location_id'];
         $branch -> code = request['code'];
         $branch -> name = request['name'];
-        $branch -> location = request['location'];
-        $branch -> descriptions = request['descriptions'];
+        $branch -> address = request['address'];
         $saved = $branch -> save();
-        if ($save) {
+        if ($saved) {
             # code...
-
+            return redirect() -> route('branches.index') -> with('success','successfully Added');
         }
         else{
-
+            return redirect() -> route('branches.index') -> with('error', 'Error adding '.$branch -> name);
         }
-
+       
             
     }
 
@@ -81,7 +83,7 @@ class BranchController extends Controller
      */
     public function show(Branch $branch)
     {
-        
+
         return view('branches.show', compact('branch'));
     }
 
