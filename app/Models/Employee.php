@@ -41,7 +41,6 @@ class Employee extends Model
      'department_id',
      'designation_id',
      'branch_id',
-     // 'location_id',
      'social_security_num',
      'pay_grade_id',
      'employee_category_id',
@@ -61,7 +60,7 @@ class Employee extends Model
 
 public function branch(){
 
-	return belongsTo(
+	return $this ->  belongsTo(
 		Branch::class,
 		'branchi_id'
 	);
@@ -69,23 +68,16 @@ public function branch(){
 
 public function employee_category(){
 
-	return belongsTo(
+	return $this ->  belongsTo(
 		EmployeeCategory::class,
 		'employee_category_id'
 	);
 }
 
-// public function location(){
-
-// 	return belongsTo(
-// 		Location::class,
-// 		'location_id'
-// 	);
-// }
-
+ 
 public function paygrade(){
 
-	return belongsTo(
+	return $this -> belongsTo(
 		PayGrade::class,
 		'pay_grade_id'
 	);
@@ -93,7 +85,7 @@ public function paygrade(){
 
 public function marital_status(){
 
-	return belongsTo(
+	return $this ->  belongsTo(
 		MaritalStatus::class,
 		'marital_status_id'
 	);
@@ -101,7 +93,7 @@ public function marital_status(){
 
   public function gender(){
 
-	return belongsTo(
+	return $this -> belongsTo(
 		Gender::class,
 		'gender_id'
 	);
@@ -109,7 +101,7 @@ public function marital_status(){
 
 public function designation(){
 
-	return belongsTo(
+	return $this -> belongsTo(
 		Designation::class,
 		'designation_id'
 	);
@@ -117,7 +109,7 @@ public function designation(){
 
 public function department(){
 
-	return belongsTo(
+	return $this -> belongsTo(
 		Department::class,
 		'department_id'
 	);
@@ -125,16 +117,16 @@ public function department(){
   
   public function users(){
 
-  	return hasMany(
+  	return $this -> hasMany(
   		User::class,
-  		'staff_id'
+  		// 'staff_id'
   	);
   }
 
 
 public function leaves(){
 
-	return hasMany(
+	return $this ->  hasMany(
 		LeaveApplication::class,
 		'staff_id'
 	);

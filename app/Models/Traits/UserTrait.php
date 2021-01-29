@@ -12,7 +12,7 @@ trait UserTrait
 	public function getStaffIdAttribute($staff_id)
 	{
 		# code...
-		return integer($staff_id);
+		return '3 - 5'.strval($staff_id);
 	}
 
 	public function getNameAttribute($name)
@@ -81,7 +81,7 @@ trait UserTrait
 	public function setEmailAttribute($email)
 	{
 		# code...
-		return $this-> attributes['email'] = strtolower(strval($name));
+		return $this-> attributes['email'] = strtolower(strval($email));
 	}
 
 }

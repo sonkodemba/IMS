@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             MaritalStatusSeeder::class,
             PayGradeSeeder::class,
+            EmployeeEducationCatrgorySeeder::class,
+            EmployeeEducationSeeder::class,
             EmployeeCategorySeeder::class,
             EmployeeSeeder::class,
             UserGroupSeeder::class,

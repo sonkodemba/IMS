@@ -41,10 +41,10 @@ class Branch extends Model
     	'updated_at',
     	'deleted_at'
     ];
-
+    
     public function users(){
 
-    	return hasManyThrough(
+    	return $this -> hasManyThrough(
     		User::class,
     		Employee::class,
     		'branch_id',
@@ -55,18 +55,28 @@ class Branch extends Model
 
     public function employees(){
 
-    	return hasMany(
-    		Employee::class,
-    		'location_id',
-    		'branch_id',
+    	return $this -> hasMany(
+    		Employee::class, 
+            'branch_id'
 
     	);
     }
     public function location(){
 
-    	return belongsTo(
+    	return $this -> belongsTo(
     	  Location::class,
     	  'location_id'
     	);
+    }
+
+    public function leaves()
+    {
+        # code...
+        return $this -> hasManyThrough(
+            LeaveApplication::class, 
+            Employee::class, 
+            'branch_id',
+            'staff_id'
+        );
     }
 }

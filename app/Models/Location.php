@@ -34,14 +34,14 @@ class Location extends Model
 
 
 	public function branches(){
-		return hasMany(
+		return $this -> hasMany(
 			Branch::class,
 			'location_id'
 		);
 	}
 
 	public function employees(){
-		return hasManyThrough(
+		return $this -> hasManyThrough(
 			Employee::class,
 			Branch::class,
 			'location_id',
@@ -50,7 +50,7 @@ class Location extends Model
 	}
 
 	public function users(){
-		return hasManyThrough(
+		return $this -> hasManyThrough(
 			User::class,
 			Branch::class,
 			'location_id',
@@ -59,14 +59,13 @@ class Location extends Model
 	}
 
 	public function leaves(){
-		return hasManyThrough(
+		return $this -> hasManyThrough(
 			LeaveApplication::class,
 			Branch::class,
 			'location_id',
-			'branch_id'
+			'branch_id',
 		);
 	}
-
 
 
 }

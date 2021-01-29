@@ -8,7 +8,7 @@ use App\Models\Traits\PayGradeTriat;
 
 class PayGrade extends Model
 {
-    use HasFactory, PayGradeTriat;
+    use HasFactory;
 /*
     +--------------+-----------------+------+-----+---------+----------------+
     | Field        | Type            | Null | Key | Default | Extra          |

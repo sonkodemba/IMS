@@ -66,7 +66,7 @@ class User extends Authenticatable
 
     public function usergroup(){
 
-        return belongsTo(
+        return $this -> belongsTo(
 
             UserGroup::class,
             'user_group_id'
@@ -75,7 +75,7 @@ class User extends Authenticatable
 
     public function employee(){
 
-        return belongsTo(
+        return $this -> belongsTo(
 
             Employee::class,
             'staff_id'

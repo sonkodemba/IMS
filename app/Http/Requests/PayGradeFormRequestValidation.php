@@ -13,7 +13,7 @@ class PayGradeFormRequestValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,21 @@ class PayGradeFormRequestValidation extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+         return [
+            /*
+            +--------------+-----------------+------+-----+---------+----------------+
+            | Field        | Type            | Null | Key | Default | Extra          |
+            +--------------+-----------------+------+-----+---------+----------------+
+            | id           | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+            | name         | varchar(255)    | NO   | UNI | NULL    |                |
+            | descriptions | longtext        | YES  |     | NULL    |                |
+            | deleted_at   | timestamp       | YES  |     | NULL    |                |
+            | created_at   | timestamp       | YES  |     | NULL    |                |
+            | updated_at   | timestamp       | YES  |     | NULL    |                |
+            +--------------+-----------------+------+-----+---------+----------------+
+            */
+            'name' => 'required|unique',
+            'descriptions' => 'required'
         ];
     }
 }

@@ -1,43 +1,40 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Database\Factories;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Models\EmployeeEducationCatrgory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class GenderFormRequestValidation extends FormRequest
+class EmployeeEducationCatrgoryFactory extends Factory
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * The name of the factory's corresponding model.
      *
-     * @return bool
+     * @var string
      */
-    public function authorize()
-    {
-        return true;
-    }
+    protected $model = EmployeeEducationCatrgory::class;
 
     /**
-     * Get the validation rules that apply to the request.
+     * Define the model's default state.
      *
      * @return array
      */
-    public function rules()
+    public function definition()
     {
         return [
-        /*            
-        +--------------+-----------------+------+-----+---------+----------------+
+        /*            +--------------+-----------------+------+-----+---------+----------------+
         | Field        | Type            | Null | Key | Default | Extra          |
         +--------------+-----------------+------+-----+---------+----------------+
         | id           | bigint unsigned | NO   | PRI | NULL    | auto_increment |
         | name         | varchar(255)    | NO   | UNI | NULL    |                |
         | descriptions | longtext        | YES  |     | NULL    |                |
-        | deleted_at   | timestamp       | YES  |     | NULL    |                |
         | created_at   | timestamp       | YES  |     | NULL    |                |
         | updated_at   | timestamp       | YES  |     | NULL    |                |
         +--------------+-----------------+------+-----+---------+----------------+
         */
-            'name' => 'required|unique',
-            'descriptions' => 'required',
+            
+            'name' => $this -> faker -> name,
+            'descriptions' => $this -> faker -> sentence(4)
         ];
     }
 }
