@@ -44,23 +44,13 @@ class Branch extends Model
     
     public function users(){
 
-    	return $this -> hasManyThrough(
-    		User::class,
-    		Employee::class,
-    		'branch_id',
-    		'staff_id'
-    	);
-    }
-
-
-    public function employees(){
-
     	return $this -> hasMany(
-    		Employee::class, 
-            'branch_id'
-
+    		User::class,
+    		'branch_id'
     	);
     }
+
+
     public function location(){
 
     	return $this -> belongsTo(

@@ -21,7 +21,7 @@ class CreateLeaveApplicationsTable extends Migration
             $table -> date('end_date');
             $table -> longText('descriptions');
             $table -> softDeletes();
-            $table -> foreign('staff_id') -> references('id') -> on('employees') -> onDelete('cascade');
+            $table -> foreign('staff_id') -> references('id') -> on('users');
             $table->timestamps();
         });
     }

@@ -37,28 +37,19 @@ class Designation extends Model
     ];
 
 
-    public function employees(){
-
-    	return hasMany(
-    		Employee::class,
-    	   'designation_id'
-    	);
-    }
-
     public function users(){
-    	return hasManyThrough(
+    	return $this ->hasMany(
     		User::class,
-    		Employee::class,
     		'designation_id',
-    		'staff_id'
+    		
     	);
     }
 
     public function leaves(){
-    	return hasManyThrough(
+    	return $this -> hasManyThrough(
 
     		LeaveApplication::class,
-    		Employee::class,
+    		User::class,
     		'designation_id',
     		'staff_id'
     	);

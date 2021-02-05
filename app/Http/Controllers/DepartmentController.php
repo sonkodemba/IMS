@@ -14,7 +14,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        // $departments = Department::latest()-> simplePaginate(5);
+        $departments = Department::all();
+        return view('departments.index', compact('departments'));
     }
 
     /**
@@ -24,7 +26,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('departments.create');
     }
 
     /**
@@ -35,7 +37,11 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+
+        }catch(Exception $exceptions){
+            return Alert::danger('Error due to '.$exceptions -> message());
+        }
     }
 
     /**
@@ -46,7 +52,7 @@ class DepartmentController extends Controller
      */
     public function show(Department $department)
     {
-        //
+        return view('departments.show', compact('department'));
     }
 
     /**
@@ -57,7 +63,7 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        //
+        return view('departments.edit', compact('department'));
     }
 
     /**
@@ -67,9 +73,20 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, DepartmentFormRequestValidation $department)
     {
-        //
+        /*
+            Department form is validated 
+            Folows the validation Rules
+        */try {
+            $department -> code = request['code'];
+            $department -> name = request['name'];
+            $department -> descriptions = request['descriptions'];
+            $department -> save();
+            Alert::success($department -> name.' updated Successfully');
+        } catch (Exception $exceptions) {
+            return Alert::danger('Error due to '.$exceptions -> message());;
+        }
     }
 
     /**

@@ -1,6 +1,23 @@
 @extends('layouts.admin')
 @section('content')
     <div class="jumbotron" style="padding-top: 10px; padding-left: 120px">
+    @if(count($branches) < 1)
+              <div style="padding-top: 20px" class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <h2 class="alert-heading">
+                    WARNING..!!
+                    <a class="btn btn-success float-md-right" href="{{ route('branches.create') }}">
+                        <i class="fa fa-plus"> New </i>
+                    </a>
+                  </h2>
+                  <hr>
+                   <strong>There is No Branch DATA Registered.
+                     Click on the Button to create BRANCHES.</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                   
+                </div>
+          @else
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -15,17 +32,13 @@
                     </div>
 
       <div class="card-body">
-
-    @if(count($branches) < 1)
-              <div class="badge badge-danger">Employee Listed, Click on "New" to Add</div>
-          @else
     <table class="table table-hover">
         <thead>
 
         <tr>
             <th >Code</th>
             <th >Name</th>
-            <th>Location</th>
+            {{-- <th>Location</th> --}}
             <th >Telephone No.</th>
              <th>Address</th>
              <th>Action</th>
@@ -33,7 +46,8 @@
 
         </thead>
         @foreach($branches as $branch)
-        <tbody>
+        <tbody>                    
+
                 <tr>
                     <td>{{$branch -> code}}</td>
                     <td>
@@ -42,7 +56,6 @@
                         </a>
 
                     </td>
-                    <td>{{$branch -> location_id}}</td>
                     <td>{{$branch-> mobile}}</td>
                     <td>{{$branch -> address}}</td>
                     <td>

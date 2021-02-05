@@ -14,8 +14,8 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $designations = Designation::simplePaginate(5);
+        return view('designations.index', compact('designations'));    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +24,7 @@ class DesignationController extends Controller
      */
     public function create()
     {
-        //
+        return view('designations.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class DesignationController extends Controller
      */
     public function show(Designation $designation)
     {
-        //
+        return view('designations.show', compact('designation'));
     }
 
     /**
@@ -57,7 +57,7 @@ class DesignationController extends Controller
      */
     public function edit(Designation $designation)
     {
-        //
+        return view('designations.edit', compact('designation'));
     }
 
     /**

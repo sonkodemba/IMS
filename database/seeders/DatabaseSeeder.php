@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             EmployeeEducationCatrgorySeeder::class,
             EmployeeEducationSeeder::class,
             EmployeeCategorySeeder::class,
-            EmployeeSeeder::class,
             UserGroupSeeder::class,
             LeaveCategorySeeder::class,
             LeaveApplicationSeeder::class,

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>::Nawec</title>
+  <title>::NanoTech</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -50,8 +50,8 @@
   <aside class="main-sidebar sidebar-dark-red elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="{{asset('Images/logo/Nawec.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="padding-top: all;">
+      <img src="{{asset('Images\logo\onclicktechnologies.png')}}" alt="AdminLTE Logo" class="brand-image img-rectangle elevation-3"
+           style="padding-top: all">
       <span class="brand-text font-weight-light" style="font-weight: 100; font-style: bolder">NanoTech</span>
     </a>
 
@@ -86,12 +86,18 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                HR Group / Admin
+                 Admin / HR Group
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right"></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('locations.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Locations</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{route('branches.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -131,7 +137,20 @@
               <li class="nav-item">
                 <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Leave Applicat</p>
+                  <p>Leave Application</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('users.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Users</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('user-groups.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User Group</p>
                 </a>
               </li>
             </ul>

@@ -40,16 +40,11 @@ class BranchFormRequestValidation extends FormRequest
         +-------------+-----------------+------+-----+---------+----------------+
         */
         'location_id' => 'required',
-        'code' => 'required|min:3|max:10',
-        'name' => 'required| min:3',
-        'mobile'=> 'required| min:6|unique',
-        'address' => 'required| max:200'
+        'code' => 'required | min:3|max:10',
+        'name' => 'required | min:3',
+        'mobile'=> 'required | min:6|unique',
+        'address' => 'required | max:200'
         ];
 
-    }
-
-    public function messages()
-    {
-        # code...
     }
 }

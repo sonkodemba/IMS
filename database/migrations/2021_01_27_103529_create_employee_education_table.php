@@ -18,7 +18,7 @@ class CreateEmployeeEducationTable extends Migration
             $table -> bigInteger('employee_education_category_id') -> unsigned();
             $table -> string('name') -> unique();
             $table ->longText('descriptions') -> nullable();
-            $table -> foreign('employee_education_category_id') -> references('id') ->on('employee_education_catrgories') -> onDelete('cascade');
+            $table -> foreign('employee_education_category_id') -> references('id') ->on('employee_education_catrgories');
             $table->timestamps();
         });
     }

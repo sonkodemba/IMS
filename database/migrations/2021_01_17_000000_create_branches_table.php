@@ -21,7 +21,7 @@ class CreateBranchesTable extends Migration
             $table -> integer('mobile') -> unsigned();
             $table -> string('address')-> nullable();
             $table -> softDeletes();
-            $table -> foreign('location_id') -> references('id') -> on('locations') -> onDelete('cascade');
+            $table -> foreign('location_id') -> references('id') -> on('locations');
             $table->timestamps();
         });
     }

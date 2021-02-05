@@ -14,7 +14,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $locations = Location::latest() -> simplePaginate(5);
+        return view('locations.index', compact('locations'));
     }
 
     /**
@@ -24,7 +25,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        return view('locations.create');
     }
 
     /**
@@ -46,7 +47,7 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        //
+        return view('locations.show', compact('location'));
     }
 
     /**
@@ -57,7 +58,7 @@ class LocationController extends Controller
      */
     public function edit(Location $location)
     {
-        //
+        return view('locations.edit', compact('location'));
     }
 
     /**

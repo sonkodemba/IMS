@@ -8,7 +8,7 @@ use App\Models\Traits\EmployeeTrait;
 
 class Employee extends Model
 {
-    use HasFactory,EmployeeTrait;
+    use HasFactory;
 
 /*
 +----------------------+-----------------+------+-----+---------+----------------+

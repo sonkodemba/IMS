@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
 <div class="jumbotron" style="padding-top: 3px; padding-left: 120px">
 <div class="container">
@@ -12,6 +11,9 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    @include('sweetalert::alert')
 
     <!-- Main content -->
     <section class="content">
@@ -23,7 +25,6 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{count(App\Models\User::all())}}</h3>
-
                 <p>Users</p>
               </div>
               <div class="icon">
@@ -37,14 +38,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{count(App\Models\Employee::all())}}<sup style="font-size: 20px"></sup></h3>
+                <h3>{{count(App\Models\User::all())}}<sup style="font-size: 20px"></sup></h3>
 
                 <p>Employee</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{ route('employees.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('users.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -100,7 +101,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 {{-- Insert Table in here --}}
-                @if(count(App\Models\Employee::all()) > 0)
+                @if(count(App\Models\User::all()) > 0)
                 <table id="example2" class="table  table-hover">
                   <thead>
                      
@@ -114,7 +115,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach(App\Models\Employee::all() as $employee)
+                    @foreach(App\Models\User::all() as $employee)
                    <tr>
                        <td>{{$employee -> staff_id}}</td>
                        <td>{{$employee -> social_security_num}}</td>
@@ -123,8 +124,8 @@
                       <td>{{$employee -> designation -> name}}</td>
                       <td>{{$employee -> locaton}}</td>
                       <td>
-                        <a  class="btn btn-outline-danger float-left" href="{{route('employees.show', $employee -> id)}}"><i class="fa fa-pencil-alt"></i></a>
-                    {{-- <a  class="btn btn-outline-danger" href="#"><i class="fa fa-trash-alt"></i></a> --}}
+                        <a  class="btn btn-outline-danger float-left" href="{{route('users.show', $employee -> id)}}"><i class="fa fa-pencil-alt"></i></a>
+                  
                       </td>
                    </tr>
                                                                      

@@ -9,6 +9,9 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use RealRashid\SweetAlert\Facades\Alert;
+use SweetAlert;
+
 
 class BranchController extends Controller
 {
@@ -18,7 +21,8 @@ class BranchController extends Controller
      * @return Application|Factory|View|Response
      */
     public function index()
-    {
+    {  
+        
         $branches = Branch::latest() -> simplePaginate(5);
         return view('branches.index', compact('branches'));
     }
@@ -57,21 +61,7 @@ class BranchController extends Controller
         +-------------+-----------------+------+-----+---------+----------------+
         
         @check the validations.
-    */
-        $branch = new Branch();
-        $branch -> location_id = request['location_id'];
-        $branch -> code = request['code'];
-        $branch -> name = request['name'];
-        $branch -> address = request['address'];
-        $saved = $branch -> save();
-        if ($saved) {
-            # code...
-            return redirect() -> route('branches.index') -> with('success','successfully Added');
-        }
-        else{
-            return redirect() -> route('branches.index') -> with('error', 'Error adding '.$branch -> name);
-        }
-       
+    */       
             
     }
 

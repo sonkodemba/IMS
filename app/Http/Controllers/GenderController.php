@@ -14,7 +14,8 @@ class GenderController extends Controller
      */
     public function index()
     {
-        //
+        $genders = Gender::latest() -> simplePaginate(5);
+        return view('genders.index', compact('genders'));
     }
 
     /**
@@ -24,7 +25,7 @@ class GenderController extends Controller
      */
     public function create()
     {
-        //
+        return view('genders.create');
     }
 
     /**
@@ -46,7 +47,7 @@ class GenderController extends Controller
      */
     public function show(Gender $gender)
     {
-        //
+    return view('genders.show', compact('gender'));
     }
 
     /**
@@ -57,7 +58,7 @@ class GenderController extends Controller
      */
     public function edit(Gender $gender)
     {
-        //
+        return view('genders.edit', compact('gender'));
     }
 
     /**

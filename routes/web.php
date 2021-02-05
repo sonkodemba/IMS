@@ -35,7 +35,7 @@ Route::get('/', function () {
 Route::resources([
     'users' => UserController::class,
     'user-groups' => UserGroupController::class,
-    'employees' => EmployeeController::class,
+    // 'employees' => EmployeeController::class,
     'employee-categories' => EmployeeCategoryController::class,
     'leave-applications' => LeaveApplicationController::class,
     'leave-categories' => LeaveCategoryController::class,

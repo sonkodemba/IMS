@@ -40,14 +40,6 @@ class Location extends Model
 		);
 	}
 
-	public function employees(){
-		return $this -> hasManyThrough(
-			Employee::class,
-			Branch::class,
-			'location_id',
-			'branch_id'
-		);
-	}
 
 	public function users(){
 		return $this -> hasManyThrough(

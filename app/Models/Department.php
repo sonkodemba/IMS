@@ -38,24 +38,12 @@ class Department extends Model
     ];
 
 
-    public function employees(){
-
-    	return $this -> hasMany(
-    		Employee::class, 
-            'department_id',
-            'id'
-    	);
-    }
-
     public function users(){
 
-    	return $this -> hasManyThrough(
+    	return $this -> hasMany(
     		User::class,
-    		Employee::class,
     		'department_id',
-    		'staff_id',
-            'id',
-            'id'
+    		
     	);
     }
 
