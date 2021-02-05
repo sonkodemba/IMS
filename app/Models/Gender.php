@@ -36,4 +36,24 @@ class Gender extends Model
     	'deleted_at'
 	
 	];
+
+    public function users()
+    {
+        # code...
+        return $this -> hasMany(
+            User::class,
+            'gender_id'
+        );
+    }
+
+    public function leaves()
+    {
+        # code...
+        return $this -> hasManyThrough(
+            LeaveApplication::class,
+            User::class,
+            'gender_id', 
+            'staff_id',
+        );
+    }
 }
