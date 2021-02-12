@@ -14,7 +14,8 @@ class PayGradeController extends Controller
      */
     public function index()
     {
-        //
+        $grades = PayGrade::all();
+        return view('pay-grades.index', compact('grades'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PayGradeController extends Controller
      */
     public function create()
     {
-        //
+        return view('pay-grades.create');
     }
 
     /**
@@ -46,7 +47,7 @@ class PayGradeController extends Controller
      */
     public function show(PayGrade $payGrade)
     {
-        //
+        return view('pay-grades.show', compact('payGrade'));
     }
 
     /**

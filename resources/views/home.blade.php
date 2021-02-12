@@ -38,9 +38,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{count(App\Models\User::all())}}<sup style="font-size: 20px"></sup></h3>
+                <h3>{{count(App\Models\Branch::all())}}<sup style="font-size: 20px"></sup></h3>
 
-                <p>Employee</p>
+                <p>Branches</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -86,21 +86,19 @@
           <!-- Left col -->
           <section class="col-lg-12 connectedSortable">
            
-            <!-- TO DO List -->
             <div class="card">
               <div class="card-header">
-                <h2 class="card-title">
-                  <i class="ion ion-clipboard mr-1"></i>
-                  List of Employee
-                </h2>
+                <h1 class="card-title">
+
+                  Users
+                </h1>
 
                 <div class="card-tools">
-                fefenf
+                
                 </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                {{-- Insert Table in here --}}
                 @if(count(App\Models\User::all()) > 0)
                 <table id="example2" class="table  table-hover">
                   <thead>
@@ -108,9 +106,10 @@
                   <tr>
                     <th>Staff ID</th>
                     <th>SSN</th>
-                    <th>Employee</th>
+                    <th>UserName</th>
                     <th>Department</th>
                     <th>Designation</th>
+                    <th>Status</th>
                     <th class="float-right">Action</th>
                   </tr>
                   </thead>
@@ -119,10 +118,24 @@
                    <tr>
                        <td>{{$employee -> staff_id}}</td>
                        <td>{{$employee -> social_security_num}}</td>
-                      <td>{{$employee -> name}}</td>
+                      <td>
+                        <a href="{{ route('users.show', $employee -> id) }}">
+                          {{$employee -> name}}
+                        </a>
+
+                      </td>
                       <td>{{$employee -> department -> name}}</td>
                       <td>{{$employee -> designation -> name}}</td>
-                      <td>{{$employee -> locaton}}</td>
+                      <td>
+                        @if (Auth::user())
+
+                          <p>D</p>
+
+                          @else
+                          <p>T</p>
+                        @endif
+
+                      </td>
                       <td>
                         <a  class="btn btn-outline-danger float-left" href="{{route('users.show', $employee -> id)}}"><i class="fa fa-pencil-alt"></i></a>
                   

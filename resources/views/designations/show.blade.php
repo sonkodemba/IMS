@@ -60,7 +60,7 @@
                 	<tr>
                 		<td>{{$designation -> designation -> code}}</td>
                 		<td>
-                			<a href="{{ route('designations.show', $designation -> id) }}">
+                			<a href="{{ route('users.show', $designation -> id) }}">
                 				{{$designation -> name}}
                 			</a>
                 		</td>

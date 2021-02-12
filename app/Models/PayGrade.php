@@ -34,11 +34,6 @@ class PayGrade extends Model
     	'deleted_at'
     ];
     
-    public function employees(){
-    	return hasMany(Employee::class,
-    		'pay_grade_id'
-    	);
-    }
 
     public function leaves(){
     	return hasManyThrough(
@@ -52,11 +47,9 @@ class PayGrade extends Model
 
 
     public function users(){
-    	return hasManyThrough(
+    	return $this -> hasMany(
     		User::class,
-    		Employee::class,
     		'pay_grade_id',
-    		'staff_id'
 
     	);
 

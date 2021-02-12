@@ -117,9 +117,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                <a href="{{ route('pay-grades.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Grades</p>
+                  <p>Pay-Grades</p>
                 </a>
               </li>
               <li class="nav-item">

@@ -40,6 +40,7 @@
         <tr>
             <th >Code</th>
             <th >Name</th>
+            <th>No.Of Users</th>
              <th>Descriptions</th>
              <th>Action</th>
         </tr>
@@ -54,6 +55,7 @@
     				{{$designation -> name}}
     			</a>
     		</td>
+            <td>{{count($designation -> users)}}</td>
     		<td>{{$designation -> descriptions}}</td>
     		<td>
     			<a class="btn btn-success" href="{{ route('designations.edit', $designation -> id) }}">
