@@ -51,7 +51,7 @@
                 <tr>
                     <td>{{$user -> staff_id}}</td>
                     <td>
-                        <a href="{{ route('users.show',$users -> id) }}">
+                        <a href="{{ route('users.show',$user -> id) }}">
                             {{$user -> name}}
                         </a>
 
@@ -59,8 +59,8 @@
                     <td>{{$user -> user_group_name}}</td>
                     <td>{{$user-> email}}</td>
                     <td>
-                    	 <a  class="btn btn-outline-warning" href="{{route('user.edit', $user -> id)}}"><i class="fa fa-pencil-alt"></i></a>
-                    <a  class="btn btn-outline-danger" href="#"><i class="fa fa-trash-alt"></i></a>
+                    	 <a  class="btn btn-warning" href="{{route('users.edit', $user -> id)}}"><i class="fa fa-pencil-alt"></i></a>
+                    <a  class="btn btn-danger" href="#"><i class="fa fa-trash-alt"></i></a>
 
                     </td>
 
@@ -68,7 +68,6 @@
                 @endforeach
         </tbody>
     </table>
-              {{-- {{$branches -> links()}} --}}
               {{ $users->onEachSide(5)->links() }}
     @endif
     </div>
