@@ -2,7 +2,7 @@
 @section('content');
 
 
- <div class="jumbotron" style="padding-top: 10px; padding-left: 120px">
+ <div class="jumbotron" style="padding-top: 10px; padding-left: 10px">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -38,9 +38,10 @@
     <table class="table table-hover">
         <thead>
         <tr>
-        	<th>#</th>
+        	<th></th>
             <th>Name</th>
-            <th>Male</th>
+            <th>Users</th>
+            <th>Leave</th>
             <th>Descriptions</th>
              <th>Action</th>
         </tr>
@@ -48,26 +49,39 @@
         </thead>
         @foreach($genders as $gender)
         <tbody>
-                	<tr>
-                		<td></td>
-                		<td>
-                			<a href="{{ route('genders.show', $gender -> id) }}">
-                				{{$gender -> name}}
-                			</a>
-                		</td>
-                		<td>{{count($gender -> users)}}</td>
-                		<td>{{$gender -> descriptions}}</td>
-                		<td>
-                			<a class="btn btn-success" href="{{ route('genders.edit', $gender -> id) }}">
-                				<i class="fa fa-pencil-alt"></i>
-                			</a>
-                			<a class="btn btn-danger" href="{{ route('genders.destroy', $gender -> id) }}">
-                				<i class="fa fa-trash-alt">
-                					
-                				</i>
-                			</a>
-                		</td>
-                	</tr>
+    	<tr>
+    		<td></td>
+    		<td>
+    			<a href="{{ route('genders.show', $gender -> id) }}">
+    				{{$gender -> name}}
+    			</a>
+    		</td>
+    		<td>
+                @if (count($gender -> users) > 0)
+                          <span class="badge badge-success">{{count($gender -> users)}}</span>
+                  @else 
+                  <span class="badge badge-danger">{{count($gender -> users)}}</span>
+                      @endif      
+            </td>
+            <td>
+                @if (count($gender -> leaves) < 1)
+                     <span class="badge badge-danger">{{count($gender -> leaves)}}</span>
+                @else 
+                    <span class="badge badge-succes">{{count($gender -> leaves)}}</span>
+                @endif
+            </td>
+    		<td>{{$gender -> descriptions}}</td>
+    		<td>
+    			<a class="btn btn-success" href="{{ route('genders.edit', $gender -> id) }}">
+    				<i class="fa fa-pencil-alt"></i>
+    			</a>
+    			<a class="btn btn-danger" href="{{ route('genders.destroy', $gender -> id) }}">
+    				<i class="fa fa-trash-alt">
+    					
+    				</i>
+    			</a>
+    		</td>
+    	</tr>
         </tbody>
         @endforeach
     </table>

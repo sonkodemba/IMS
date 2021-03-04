@@ -40,9 +40,10 @@
             <th>Name</th>
             <th>No. Branch</th>
             <th>No. Staff</th>
+            {{-- <th>On-Leave</th> --}}
             <th>Descriptions</th>
-            <th>Date Created</th>
-             <th>Action</th>
+
+              <th>Action</th>
         </tr>
 
         </thead>
@@ -55,11 +56,23 @@
                             {{$location -> name}}
                         </a>
                     </td>
-                    <td >{{count($location -> branches)}}</td>
-                    <td>{{count($location -> users)}}
+                    <td >
+                        @if (count($location -> branches) > 0)
+                        <span class="badge badge-success">{{count($location -> branches)}}</span>
+                            {{-- expr --}}
+                            @else 
+                            <span class="badge badge-danger">{{count($location -> branches)}}</span>
+                        @endif
                     </td>
+                    <td>
+                        @if (count($location -> users) > 0)
+                           <span class="badge badge-success">{{count($location -> users)}}</span>
+                           @else 
+                           <span class="badge badge-danger">{{count($location -> users)}}</span>
+                        @endif
+                     </td>
+                     {{-- <td>{{count($location -> leaves)}}</td> --}}
                     <td>{{$location-> descriptions}}</td>
-                    <td>{{$location -> created_at}}</td>
                     <td>
                     	 <a  class="btn btn-success" href="{{route('locations.edit', $location -> id)}}"><i class="fa fa-pencil-alt"></i></a>
                     <a  class="btn btn-danger" href="#"><i class="fa fa-trash-alt"></i></a>

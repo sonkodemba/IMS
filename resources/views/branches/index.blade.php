@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="jumbotron" style="padding-top: 10px; padding-left: 120px">
+    <div class="jumbotron" style="padding-top: 10px; padding-left: 10px">
     @if(count($branches) < 1)
               <div style="padding-top: 20px" class="alert alert-warning alert-dismissible fade show" role="alert">
                   <h2 class="alert-heading">
@@ -36,9 +36,8 @@
         <thead>
 
         <tr>
-            <th >Code</th>
             <th >Name</th>
-            {{-- <th>Location</th> --}}
+            <th>#.Staff</th>
             <th >Telephone No.</th>
              <th>Address</th>
              <th>Action</th>
@@ -49,18 +48,24 @@
         <tbody>                    
 
                 <tr>
-                    <td>{{$branch -> code}}</td>
                     <td>
                         <a href="{{ route('branches.show',$branch -> id) }}">
                             {{$branch -> name}}
                         </a>
 
                     </td>
+                    <td>
+                      @if (count($branch -> users) > 0)
+                        <span class="badge badge-success">{{count($branch -> users)}}</span>
+                        @else 
+                        <span class="badge badge-danger">{{count($branch -> users)}}</span>
+                      @endif
+                    </td>
                     <td>{{$branch-> mobile}}</td>
                     <td>{{$branch -> address}}</td>
                     <td>
-                    	 <a  class="btn btn-outline-warning" href="{{route('branches.edit', $branch -> id)}}"><i class="fa fa-pencil-alt"></i></a>
-                    <a  class="btn btn-outline-danger" href="#"><i class="fa fa-trash-alt"></i></a>
+                    	 <a  class="btn btn-success" href="{{route('branches.edit', $branch -> id)}}"><i class="fa fa-pencil-alt"></i></a>
+                    <a  class="btn btn-danger" href="#"><i class="fa fa-trash-alt"></i></a>
 
                     </td>
 

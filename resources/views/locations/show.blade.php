@@ -36,13 +36,13 @@
                   @foreach ($location -> users as $locationEmployee)
                   	<tr>
                     <td>
-                     <a href="{{ route('employees.show', $locationEmployee -> id ) }}">
+                     <a href="{{ route('users.show', $locationEmployee -> id ) }}">
                       {{$locationEmployee -> name}}
                     </a>
                     </td>
                     <td>{{$locationEmployee -> gender -> name}}</td>
                     <td>
-                      <a href="{{ route('employees.show', $locationEmployee -> id) }}">
+                      <a href="{{ route('users.show', $locationEmployee -> id) }}">
                         {{$locationEmployee -> staff_id}}
                       </a>
                       </td>
@@ -50,8 +50,8 @@
                     <td> {{$locationEmployee -> designation -> name}}</td>
                     <td>
                       
-                      <a href="{{ route('employees.show', $locationEmployee -> id) }}" class="btn btn-outline-success">
-                        <i class="fa fa-pencil-alt"></i>
+                      <a href="{{ route('users.show', $locationEmployee -> id) }}" class="btn btn-success">
+                        <i class="fa fa-user"></i>
                       </a>
                     </td>
                   </tr>

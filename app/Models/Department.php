@@ -50,16 +50,11 @@ class Department extends Model
     public function leaves(){
     	return $this ->  hasManyThrough(
     		LeaveApplication::class,
-    		Employee::class,
+    		User::class,
     		'department_id',
     		'staff_id'
 
     	);
     }
 
-    
-
-
-
-    
 }

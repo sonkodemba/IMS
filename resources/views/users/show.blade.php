@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="jumbotron" style="padding-top: 10px; padding-left: 5px; float-left">
-<div class="content-wrapper">
+    <div class="jumbotron" style="padding-top: 10px; padding-left: 20px; float-left">
+{{-- <div class="content-wrapper"> --}}
         <div class="row">
-          <div class=" col-sm-12 col-md-6 col-lg-3">
+          <div class=" col-md-3">
 
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
@@ -14,23 +14,38 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center">{{$user -> name}}</h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                {{-- <p class="text-muted text-center">{{$user -> dersignation -> name}}</p> --}}
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
+                    <b>Staff ID:</b> <a class="float-right">{{$user -> staff_id}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
+                    <b>SSN:</b> <a class="float-right">{{$user -> social_security_num}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
+                    <b>Dept:</b> <a class="float-right">{{$user -> department -> name}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Title:</b> <a class="float-right">{{$user -> designation -> name}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Email:</b><small> <a class="float-right">{{$user -> email}}</a></small>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Mobile:</b><a class="float-right">{{$user -> mobile_num}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Grade:</b><a class="float-right">{{$user -> paygrade -> name}}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Gender:</b><a class="float-right">{{$user -> gender -> name}}</a>
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                {{-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> --}}
               </div>
               <!-- /.card-body -->
             </div>
@@ -198,6 +213,6 @@
       {{-- </div>/.container-fluid --}}
     {{-- </section> --}}
     <!-- /.content -->
-  </div>
+  {{-- </div> --}}
   <div>
 @endsection

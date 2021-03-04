@@ -54,8 +54,15 @@
         				{{$grade -> name}}
         			</a>
         		</td>
-                <td>{{count($grade -> users)}}</td>
-                {{-- <td>{{count($grade -> users  == 'M')}}</td> --}}
+                <td>
+                    @if (count($grade -> users) < 1)
+                        <span class="badge badge-danger">{{count($grade -> users)}}</span>
+                    @else
+                       <span class="badge badge-succes">
+                        {{count($grade -> users)}}
+                    </span>
+                    @endif
+                </td>
         		<td>{{$grade -> descriptions}}</td>
               <td>
         			<a class="btn btn-success" href="{{ route('pay-grades.edit', $grade -> id) }}">

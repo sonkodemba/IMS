@@ -2,7 +2,7 @@
 @section('content');
 
 
- <div class="jumbotron" style="padding-top: 10px; padding-left: 120px">
+ <div class="jumbotron" style="padding-top: 10px; padding-left: 20px">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -38,9 +38,10 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th >Code</th>
+        
             <th >Name</th>
             <th>No. of Employees</th>
+            <th>On Leave</th>
             <th>Descriptions</th>
              <th>Action</th>
         </tr>
@@ -48,30 +49,48 @@
         </thead>
         @foreach($departments as $department)
         <tbody>
-                	<tr>
-                		<td>{{$department -> code}}</td>
-                		<td>
-                			<a href="{{ route('departments.show', $department -> id) }}">
-                				{{$department -> name}}
-                			</a>
-                		</td>
-                        <td>{{count($department -> users)}}</td>
-                		<td>{{$department -> descriptions}}</td>
-                		<td>
-                			<a class="btn btn-success" href="{{ route('departments.edit', $department -> id) }}">
-                				<i class="fa fa-pencil-alt"></i>
-                			</a>
-                			<a class="btn btn-danger" href="{{ route('departments.destroy', $department -> id) }}">
-                				<i class="fa fa-trash-alt">
-                					
-                				</i>
-                			</a>
-                		</td>
-                	</tr>
+        	<tr>
+        	
+        		<td>
+        			<a href="{{ route('departments.show', $department -> id) }}">
+        				{{$department -> name}}
+        			</a>
+        		</td>
+                <td>
+                    @if (count($department -> users) > 0)
+                        <span class="badge badge-success">
+                            {{count($department -> users)}}
+                        </span>
+                    @else 
+                      <span class="badge badge-danger">{{count($department -> users)}}</span>
+                    @endif
+                </td>
+                <td>
+                    @if (count($department -> leaves) < 1)
+                       <span class=" badge badge-primary">{{count($department -> leaves)}}</span>
+                        {{-- expr --}}
+                        @elseif(count($department -> leaves) == count($department -> leaves) / 2)
+                        <span class="badge badge-warning">{{count($department -> leaves)}}</span>
+                        @else 
+                        <span class="badge badge-success">{{count($department -> leaves)}}</span>
+                    @endif
+                </td>
+        		<td>{{$department -> descriptions}}</td>
+        		<td>
+        			<a class="btn btn-success" href="{{ route('departments.edit', $department -> id) }}">
+        				<i class="fa fa-pencil-alt"></i>
+        			</a>
+        			<a class="btn btn-danger" href="{{ route('departments.destroy', $department -> id) }}">
+        				<i class="fa fa-trash-alt">
+        					
+        				</i>
+        			</a>
+        		</td>
+        	</tr>
         </tbody>
         @endforeach
     </table>
-             
+           {{$departments -> onEachSide(5)->links()}}  
     @endif
     </div>
         </div>

@@ -51,6 +51,7 @@
             <th>Grade</th>
             <th>Gender</th>
             <th>Department</th>
+            <th>Category</th>
              <th>Action</th>
         </tr>
 
@@ -69,6 +70,7 @@
                 		<td>{{$designation -> paygrade -> name}}</td>
                 		<td>{{$designation -> gender -> name}}</td>
                 		<td>{{$designation -> department -> name}}</td>
+                        <td>{{$designation -> employee_category -> name}}</td>
                 		<td>
                 			<a class="btn btn-danger" href="{{ route('users.show', $designation -> id) }}">
                 				<i class="fa fa-user-alt"></i>

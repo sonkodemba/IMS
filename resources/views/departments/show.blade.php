@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content');
- <div class="jumbotron" style="padding-top: 10px; padding-left: 120px">
+ <div class="jumbotron" style="padding-top: 10px; padding-left: 20px">
     @if (count($department -> users)< 1)
         {{-- expr --}}
         <div style="padding-top: 20px" class="alert alert-warning alert-dismissible fade show" role="alert">

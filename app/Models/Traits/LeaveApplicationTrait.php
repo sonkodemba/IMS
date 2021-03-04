@@ -60,6 +60,6 @@ trait LeaveApplicationTrait
 		public function setStaffIdAttribute($staff_id)
 		{
 			# code...
-			return $this -> 
+			return $this -> $staff_id;
 		}
 }
