@@ -46,6 +46,7 @@ Route::resources([
     'designations' => DesignationController::class,
     'genders' => GenderController::class,
     'marital-statuses' => MaritalStatusController::class,
+    'user-groups' => UserGroupController::class,
 
 ]);
 

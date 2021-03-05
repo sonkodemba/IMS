@@ -14,7 +14,8 @@ class UserGroupController extends Controller
      */
     public function index()
     {
-        //
+        $user_groups = UserGroup::latest() -> simplePaginate(5);;
+        return view('user-groups.index', compact('user_groups'));
     }
 
     /**
@@ -24,7 +25,7 @@ class UserGroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('user-groups.create');
     }
 
     /**

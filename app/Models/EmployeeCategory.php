@@ -33,21 +33,13 @@ class EmployeeCategory extends Model
     	'updated_at',
     	'deleted_at'
     ];
-
-
-	public function employees(){
-
-		return hasMany(
-			Employee::class,
-			'employee_category_id'
-		);
-	} 
+ 
 
 
 	public function users(){
 
-		return hasManyThrough(
-			User::class,Employee::class,
+		return hasMany(
+			User::class,
 			'employee_category_id',
 			'staff_id'
 		);

@@ -131,15 +131,15 @@
               <li class="nav-item">
                 <a href="{{ route('leave-applications.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Leave Category</p>
+                  <p>Leave Application</p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Leave Application</p>
                 </a>
-              </li>
+              </li> --}}
 
               <li class="nav-item">
                 <a href="{{ route('users.index') }}" class="nav-link">

@@ -97,7 +97,7 @@ class User extends Authenticatable
 public function employee_category(){
 
     return $this ->  belongsTo(
-        EmployeeCategory::class,
+        User::class,
         'employee_category_id'
     );
 }

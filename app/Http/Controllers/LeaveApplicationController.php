@@ -15,6 +15,8 @@ class LeaveApplicationController extends Controller
     public function index()
     {
         //
+        $leave_applications = LeaveApplication::all();
+        return view('leave-applications.index', compact('leave_applications'));
     }
 
     /**
