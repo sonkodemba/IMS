@@ -15,6 +15,19 @@
   <form class="form-horizontal" action="{{route('branches.store')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="card-body">
+        <div class="form-group row">
+              <label style="text-align: right; color: #0E0EFF " for="Location" class="col-sm-2 col-form-label">Location:</label>
+              <div class="col-sm-6">
+                  <select name="location" id="location_id" class="form-control select2" style="background-color: lightyellow; font-size: 20px; font-family: sans-serif bold; color: red; font-weight: bolder;">
+                    <option selected="selected">-- Select Location --</option>
+                     @foreach ($locationProvider as $location)                                       
+                        <option value="{{ $location->id }}">{{ $location->name }}</option>                                                      
+                    @endforeach
+                  
+                  </select>
+              </div>
+
+          </div>
           <div class="form-group row">
               <label style="text-align: right; color: #0E0EFF" for="Code" class="col-sm-2 col-form-label">Code:</label>
               <div class="col-sm-7 input-group input-group-sm">
@@ -28,32 +41,26 @@
               <label style="text-align: right; color: #0E0EFF" for=" Code" class="col-sm-2 col-form-label">Name:</label>
               <div class="col-sm-7 input-group input-group-sm">
                   <div class="input-group-append">
-                      <input type="text" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="name" class="form-control" id="Name" >
+                      <input type="text" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="branch_name" class="form-control" id="Name" >
+
+                  </div>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label style="text-align: right; color: #0E0EFF" for=" Code" class="col-sm-2 col-form-label">Mobile No:</label>
+              <div class="col-sm-7 input-group input-group-sm">
+                  <div class="input-group-append">
+                      <input type="numbers" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="mpbile_num" class="form-control" id="Name" >
 
                   </div>
               </div>
           </div>
         
           <div class="form-group row">
-              <label style="text-align: right; color: #0E0EFF " for="Location" class="col-sm-2 col-form-label">Location:</label>
-              <div class="col-sm-6">
-                  <select name="location" id="location_id" class="form-control select2" style="background-color: lightyellow; font-size: 20px; font-family: sans-serif bold; color: red; font-weight: bolder;">
-                    <option selected="selected">-- Select Location --</option>
-                    <option>Alaska</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select>
-              </div>
+              <label style="text-align: right; color: #0E0EFF" for="Name" class="col-sm-2 col-form-label">Address:</label>
+              <div class="col-sm-7">
+                   <input type="text" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="address" class="form-control" id="Name" >
 
-          </div>
-        
-          <div class="form-group row">
-              <label style="text-align: right; color: #0E0EFF" for="Name" class="col-sm-2 col-form-label">Descriptions:</label>
-              <div class="col-sm-10">
-                  <textarea style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  type="text" name="descriptions" class="form-control" id="Name">
-                  </textarea>
               </div>
           </div>
 

@@ -37,9 +37,22 @@ class DepartmentFormRequestValidation extends FormRequest
             | updated_at   | timestamp       | YES  |     | NULL    |                |
             +--------------+-----------------+------+-----+---------+----------------+
             */
-            'code' => 'required|unique',
-            'name' => 'required | unique',
+            'code' => 'required|max:10|min:2|unique',
+            'name' => 'required|min:2 |min:50| unique',
             'descriptions' => 'required| min:3| max:255'
+        ];
+    }
+
+    public function messages(){
+
+        return [
+            'code.required' => 'Department Code is Required',
+            'code.max' => 'Code required atleast 10 Characters',
+            'code.min' => 'Code requires minimum of 2 Characters',
+            'code.unique' => 'Code Should be Unique',
+            'name.required' => 'Department Name is Required',
+            'name.min' => 'Name Requires atleast 2 Characters',
+            'name.max' => 'Department Name cannot be More than 50 Characters'
         ];
     }
 }

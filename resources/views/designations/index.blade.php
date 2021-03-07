@@ -38,6 +38,7 @@
 <table class="table table-hover">
 <thead>
 <tr>
+    <th></th>
     <th >Name</th>
     <th>No.Of Users</th>
     <th>On-Leave</th>
@@ -49,7 +50,7 @@
 @foreach($designations as $designation)
 <tbody>
 <tr>
-
+  <td></td>
 	<td>
 		<a href="{{ route('designations.show', $designation -> id) }}">
 			{{$designation -> name}}

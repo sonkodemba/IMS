@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="jumbotron" style="padding-top: 10px; padding-left: 120px">
+    <div class="jumbotron" style="padding-top: 10px; padding-left: 30px">
     @if(count($locations) < 1)
               <div style="padding-top: 20px" class="alert alert-warning alert-dismissible fade show" role="alert">
                   <h2 class="alert-heading">
@@ -17,7 +17,7 @@
                   </button>
                    
                 </div>
-          @else
+   @else
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -36,11 +36,10 @@
         <thead>
 
         <tr>
-          
+            <th></th>
             <th>Name</th>
             <th>No. Branch</th>
             <th>No. Staff</th>
-            {{-- <th>On-Leave</th> --}}
             <th>Descriptions</th>
 
               <th>Action</th>
@@ -51,6 +50,7 @@
         <tbody>                   
 
                 <tr>
+                    <td></td>
                      <td>
                         <a href="{{ route('locations.show',$location -> id) }}">
                             {{$location -> name}}

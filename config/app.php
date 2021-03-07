@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+            Drop down Services Providers
+         */
+        App\Providers\LocationProvider::class,
 
         /*
             Adding SweetAlert Facade

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <div class="jumbotron" style="padding-top: 10px; padding-left: 20px; float-left">
-{{-- <div class="content-wrapper"> --}}
         <div class="row">
           <div class=" col-md-3">
 
@@ -15,8 +14,6 @@
                 </div>
 
                 <h3 class="profile-username text-center">{{$user -> name}}</h3>
-
-                {{-- <p class="text-muted text-center">{{$user -> dersignation -> name}}</p> --}}
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -41,7 +38,13 @@
                     <b>Grade:</b><a class="float-right">{{$user -> paygrade -> name}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Gender:</b><a class="float-right">{{$user -> gender -> name}}</a>
+                    <b>Gender:</b><a class="float-right" style="color: red; font-family: all;">
+                      @if ($user -> gender -> name == 'M')
+                        <p>Male</p>
+                      @else 
+                         <p>FeMale</p>
+                      @endif
+                    </a>
                   </li>
                 </ul>
 
@@ -97,7 +100,6 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  {{-- <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li> --}}
                   <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
 
 

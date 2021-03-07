@@ -34,13 +34,25 @@ class DepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        try{
-
-        }catch(Exception $exceptions){
-            return Alert::danger('Error due to '.$exceptions -> message());
-        }
+    public function store(Request $request, DepartmentFormRequestValidation $department)
+     {
+        /* 
+        +--------------+-----------------+------+-----+---------+----------------+
+        | Field        | Type            | Null | Key | Default | Extra          |
+        +--------------+-----------------+------+-----+---------+----------------+
+        | id           | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+        | code         | varchar(255)    | NO   | UNI | NULL    |                |
+        | name         | varchar(255)    | NO   | UNI | NULL    |                |
+        | descriptions | longtext        | YES  |     | NULL    |                |
+        | deleted_at   | timestamp       | YES  |     | NULL    |                |
+        | created_at   | timestamp       | YES  |     | NULL    |                |
+        | updated_at   | timestamp       | YES  |     | NULL    |                |
+        +--------------+-----------------+------+-----+---------+----------------+
+        */
+        $department -> code = $request['code'];
+        $department -> name = $request['name'];
+        $department -> descriptions = $request['descriptions'];
+        $department -> save();
     }
 
     /**
@@ -74,18 +86,8 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, DepartmentFormRequestValidation $department)
     {
-        /*
-            Department form is validated 
-            Folows the validation Rules
-        */try {
-            $department -> code = request['code'];
-            $department -> name = request['name'];
-            $department -> descriptions = request['descriptions'];
-            $department -> save();
-            Alert::success($department -> name.' updated Successfully');
-        } catch (Exception $exceptions) {
-            return Alert::danger('Error due to '.$exceptions -> message());;
-        }
+
+
     }
 
     /**

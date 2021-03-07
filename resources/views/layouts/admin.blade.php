@@ -595,6 +595,7 @@
   </aside>
   <div class="content-wrapper">
   <!-- Content Wrapper. Contains page content -->
+    
       @yield('content')
   </div>
 </div>

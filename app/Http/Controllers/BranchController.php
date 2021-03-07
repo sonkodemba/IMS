@@ -61,8 +61,16 @@ class BranchController extends Controller
         +-------------+-----------------+------+-----+---------+----------------+
         
         @check the validations.
-    */       
-            
+    */          
+        $branch = Branch::create([
+            'location_id' => $request['location'],
+            'code' => $request['code'],
+            'name' => $request['name'],
+            'mobile' => $request['mobile_num'],
+            'address' => $request['address']
+
+        ]);
+        return redirect() -> route('branches.index');
     }
 
     /**
