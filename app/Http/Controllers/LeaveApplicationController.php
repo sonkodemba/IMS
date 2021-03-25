@@ -38,19 +38,19 @@ class LeaveApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        // +-------------------+-----------------+------+-----+---------+----------------+
-        // | Field             | Type            | Null | Key | Default | Extra          |
-        // +-------------------+-----------------+------+-----+---------+----------------+
-        // | id                | bigint unsigned | NO   | PRI | NULL    | auto_increment |
-        // | staff_id          | bigint unsigned | NO   | MUL | NULL    |                |
-        // | leave_category_id | bigint unsigned | NO   |     | NULL    |                |
-        // | start_date        | date            | NO   |     | NULL    |                |
-        // | end_date          | date            | NO   |     | NULL    |                |
-        // | descriptions      | longtext        | NO   |     | NULL    |                |
-        // | deleted_at        | timestamp       | YES  |     | NULL    |                |
-        // | created_at        | timestamp       | YES  |     | NULL    |                |
-        // | updated_at        | timestamp       | YES  |     | NULL    |                |
-        // +-------------------+-----------------+------+-----+---------+----------------+
+    // +-------------------+-----------------+------+-----+---------+----------------+
+    // | Field             | Type            | Null | Key | Default | Extra          |
+    // +-------------------+-----------------+------+-----+---------+----------------+
+    // | id                | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+    // | staff_id          | bigint unsigned | NO   | MUL | NULL    |                |
+    // | leave_category_id | bigint unsigned | NO   |     | NULL    |                |
+    // | start_date        | date            | NO   |     | NULL    |                |
+    // | end_date          | date            | NO   |     | NULL    |                |
+    // | descriptions      | longtext        | NO   |     | NULL    |                |
+    // | deleted_at        | timestamp       | YES  |     | NULL    |                |
+    // | created_at        | timestamp       | YES  |     | NULL    |                |
+    // | updated_at        | timestamp       | YES  |     | NULL    |                |
+    // +-------------------+-----------------+------+-----+---------+----------------+
 
 
         request() -> validate(LeaveApplication::$rules);
@@ -102,7 +102,7 @@ class LeaveApplicationController extends Controller
      */
     public function destroy(LeaveApplication $leaveApplication)
     {
-        //
-        LeaveApplication::where($leaveApplication) -> delete();
+        $leaveApplication -> delete();
+        return redirect() -> route('leave-applications.index');
     }
 }

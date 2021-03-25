@@ -26,7 +26,7 @@
               <label style="text-align: right; color: #0E0EFF" for=" Code" class="col-sm-2 col-form-label">Name:</label>
               <div class="col-sm-7 input-group input-group-sm">
                   <div class="input-group-append">
-                      <input placeholder="Enter Gender: EG: Male" type="text" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="name" class="form-control" id="Name" >
+                      <input  type="text" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;" value="{{$gender -> name}}"  name="name" class="form-control" id="Name" >
 
                   </div>
               </div>
@@ -35,7 +35,7 @@
           <div class="form-group row">
               <label style="text-align: right; color: #0E0EFF" for="Name" class="col-sm-2 col-form-label">Descriptions:</label>
               <div class="col-sm-10">
-                  <textarea placeholder="Enter Descriptions" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  type="text" name="descriptions" class="form-control" id="Name">
+                  <input type="text" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  type="text" name="descriptions" value="{{$gender -> descriptions}}" class="form-control" id="Name">
                   </textarea>
               </div>
           </div>
@@ -48,7 +48,7 @@
               <span class="badge btn-outline-danger"></span>
               <div class="float-md-right">
                   <button  type="submit" class="btn btn-success">
-                      <i class="fa fa-credit-card"> Create</i>
+                      <i class="fa fa-update"> Update</i>
                   </button>
                   <a href="{{route('genders.index')}}" class="btn btn-danger">
                       <i class="fa fa-backward"></i>

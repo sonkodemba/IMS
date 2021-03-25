@@ -84,6 +84,7 @@ class DesignationController extends Controller
      */
     public function destroy(Designation $designation)
     {
-        //
+        $designation -> delete();
+        return redirect() -> route('designations.index');
     }
 }

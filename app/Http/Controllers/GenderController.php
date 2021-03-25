@@ -36,7 +36,11 @@ class GenderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        #get the validations from the rules
+        #defined in the Model,
+        request() -> validate(Gender::$rules);
+        Gender::create($request -> all());
+        return redirect() -> route('genders.index');
     }
 
     /**
@@ -70,7 +74,8 @@ class GenderController extends Controller
      */
     public function update(Request $request, Gender $gender)
     {
-        //
+        $gender -> update($request -> all());
+        return redirect() -> route('genders.index');
     }
 
     /**
@@ -81,6 +86,7 @@ class GenderController extends Controller
      */
     public function destroy(Gender $gender)
     {
-        //
+        $gender -> delete();
+        return redirect() -> route("genders.index");
     }
 }

@@ -22,7 +22,10 @@ class Gender extends Model
 // | updated_at   | timestamp       | YES  |     | NULL    |                |
 // +--------------+-----------------+------+-----+---------+----------------+
 
-
+    public static $rules = [
+        'name' => ['required','min:1','max:1'],
+        'descriptions' => ['required','min:2','max:100']
+    ];
 
     protected $fillable = [
     	'name',

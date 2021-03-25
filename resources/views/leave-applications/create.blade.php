@@ -12,6 +12,7 @@
            </i>
       </h1>
   </div>
+  {{var_dump($errors)}}
   <form class="form-horizontal" action="{{route('leave-applications.store')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="card-body">
@@ -42,7 +43,7 @@
               <div class="col-sm-7 input-group input-group-sm">
                   <div class="input-group-append">
                       <input type="date"  value="{{old('start_date')}}" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="start_date" class="form-control" id="Name" placeholder="LKS" >
-                      <span style="color: red; font-style: italic;">{{$errors -> first('code')}}</span>
+                      <span style="color: red; font-style: italic;">{{$errors -> first('start_date')}}</span>
                   </div>
               </div>
           </div>

@@ -88,7 +88,7 @@
                             
                         </i> 
                 </a>
-        			</a>
+        		
                     <form id="delete-fromDepartment-{{$department -> id}}" action="{{ route('departments.destroy', $department -> id) }}" method="POST">
                         @csrf
                         @method('DELETE')

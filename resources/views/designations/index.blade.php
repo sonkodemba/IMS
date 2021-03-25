@@ -76,11 +76,18 @@
 		<a class="btn btn-success" href="{{ route('designations.edit', $designation -> id) }}">
 			<i class="fa fa-pencil-alt"></i>
 		</a>
-		<a class="btn btn-danger" href="{{ route('designations.destroy', $designation -> id) }}">
+		<a class="btn btn-danger" href="{{ route('designations.index') }}" 
+        onclick="event.preventDefault();
+        document.getElementById(
+          'delete-fromDesignation-{{$designation->id}}').submit();" >
 			<i class="fa fa-trash-alt">
 				
 			</i>
 		</a>
+    <form id="delete-fromDesignation-{{$designation -> id}}" action="{{ route('designations.destroy', $designation -> id) }}" method="POST">
+      @csrf
+      @method('DELETE')
+  </form>
 	</td>
 </tr>
 </tbody>

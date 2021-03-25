@@ -13,7 +13,7 @@
                   </h2>
                   <hr>
                    <strong>There is No PAY GRADES DATA Registered.
-                     Click on the Button to create DEPARTMENT.</strong>
+                     Click on the Button to create grade.</strong>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -68,11 +68,19 @@
         			<a class="btn btn-success" href="{{ route('pay-grades.edit', $grade -> id) }}">
         				<i class="fa fa-pencil-alt"></i>
         			</a>
-        			<a class="btn btn-danger" href="{{ route('pay-grades.destroy', $grade -> id) }}">
-        				<i class="fa fa-trash-alt">
-        					
-        				</i>
-        			</a>
+        			 <a class="btn btn-danger" href="{{ route('pay-grades.index') }}" 
+                       onclick="event.preventDefault();
+                        document.getElementById(
+                          'delete-fromgrade-{{$grade->id}}').submit();">
+                        <i class="fa fa-trash">
+                            
+                        </i> 
+                </a>
+                
+                    <form id="delete-fromgrade-{{$grade -> id}}" action="{{ route('pay-grades.destroy', $grade -> id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    </form>
         		</td>
         	</tr>
         </tbody>

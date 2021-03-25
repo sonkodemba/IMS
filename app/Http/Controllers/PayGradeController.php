@@ -86,6 +86,10 @@ class PayGradeController extends Controller
      */
     public function destroy(PayGrade $payGrade)
     {
-        //
+        #
+        #Delete by the Grade ID,
+        #
+        $payGrade -> delete();
+        return redirect() -> route('pay-grades.index');
     }
 }

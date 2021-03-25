@@ -75,11 +75,20 @@
     			<a class="btn btn-success" href="{{ route('genders.edit', $gender -> id) }}">
     				<i class="fa fa-pencil-alt"></i>
     			</a>
-    			<a class="btn btn-danger" href="{{ route('genders.destroy', $gender -> id) }}">
-    				<i class="fa fa-trash-alt">
-    					
-    				</i>
-    			</a>
+    			
+                    <a class="btn btn-danger" href="{{ route('genders.index') }}" 
+                       onclick="event.preventDefault();
+                        document.getElementById(
+                          'delete-fromGender-{{$gender->id}}').submit();">
+                        <i class="fa fa-trash">
+                            
+                        </i> 
+                    
+                    </a>
+                    <form id="delete-fromGender-{{$gender -> id}}" action="{{ route('genders.destroy', $gender -> id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    </form>
     		</td>
     	</tr>
         </tbody>
