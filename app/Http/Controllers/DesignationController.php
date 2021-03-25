@@ -14,7 +14,7 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        $designations = Designation::simplePaginate(5);
+        $designations = Designation::latest()->simplePaginate(5);
         return view('designations.index', compact('designations'));    }
 
     /**
@@ -35,7 +35,9 @@ class DesignationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request() -> validate(Designation::$rules);
+        Designation::create($request -> all());
+        return redirect() -> route('designations.index');
     }
 
     /**
@@ -57,6 +59,7 @@ class DesignationController extends Controller
      */
     public function edit(Designation $designation)
     {
+
         return view('designations.edit', compact('designation'));
     }
 
@@ -69,7 +72,8 @@ class DesignationController extends Controller
      */
     public function update(Request $request, Designation $designation)
     {
-        //
+        $designation -> update($request -> all());
+        return redirect() -> route('designations.index');
     }
 
     /**

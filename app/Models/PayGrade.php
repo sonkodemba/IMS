@@ -34,7 +34,11 @@ class PayGrade extends Model
     	'deleted_at'
     ];
     
+    public static $rules = [
 
+        'name' => ['required', 'min:1', 'max:2'],
+        'descriptions' => ['required', 'min:3', 'max:100']
+    ];
     public function leaves(){
     	return hasManyThrough(
     		LeaveApplication::class,

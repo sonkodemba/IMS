@@ -34,7 +34,7 @@ class DepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, DepartmentFormRequestValidation $department)
+    public function store(Request $request)
      {
         /* 
         +--------------+-----------------+------+-----+---------+----------------+
@@ -49,10 +49,9 @@ class DepartmentController extends Controller
         | updated_at   | timestamp       | YES  |     | NULL    |                |
         +--------------+-----------------+------+-----+---------+----------------+
         */
-        $department -> code = $request['code'];
-        $department -> name = $request['name'];
-        $department -> descriptions = $request['descriptions'];
-        $department -> save();
+       request() -> validate(Department::$rules);
+       Department::create($request -> all());
+       return redirect() -> route('departments.index');
     }
 
     /**
@@ -84,9 +83,10 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DepartmentFormRequestValidation $department)
+    public function update(Request $request, Department $department)
     {
-
+        $department -> update($request -> all());
+        return redirect() -> route("departments.index");
 
     }
 

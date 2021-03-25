@@ -36,6 +36,11 @@ class Designation extends Model
     	'updated_at'
     ];
 
+    public static $rules = [
+        'code' => ['required', 'min:3','max:50'],
+        'name' => ['required', 'min:3','max:50'],
+        'descriptions' => ['min:3','max:200']
+    ];
 
     public function users(){
     	return $this ->hasMany(

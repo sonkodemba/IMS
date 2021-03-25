@@ -34,9 +34,32 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
-        //
+        /*
+        +--------------+-----------------+------+-----+---------+----------------+
+        | Field        | Type            | Null | Key | Default | Extra          |
+        +--------------+-----------------+------+-----+---------+----------------+
+        | id           | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+        | name         | varchar(255)    | NO   | UNI | NULL    |                |
+        | descriptions | text            | YES  |     | NULL    |                |
+        | created_at   | timestamp       | YES  |     | NULL    |                |
+        | updated_at   | timestamp       | YES  |     | NULL    |                |
+        +--------------+-----------------+------+-----+---------+----------------+
+         */
+        
+    
+        request()->validate(Location::$rules);
+
+        Location::create($request -> all());
+        // $location = new Location;
+        // $location -> name = $request['name'];
+        // $location -> descriptions = $request['descriptions'];
+        // $location -> save();
+        
+        return redirect() -> route('locations.index');
+
     }
 
     /**
@@ -70,7 +93,10 @@ class LocationController extends Controller
      */
     public function update(Request $request, Location $location)
     {
-        //
+       #update Location
+       $location -> update($request -> all());
+       return redirect() -> route('locations.index');
+       
     }
 
     /**

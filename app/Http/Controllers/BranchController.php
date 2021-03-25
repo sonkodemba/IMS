@@ -15,6 +15,7 @@ use SweetAlert;
 
 class BranchController extends Controller
 {
+ 
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +44,7 @@ class BranchController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return Response
      */
-    public function store(BranchFormRequestValidation $request)
+    public function store(Request $request)
     {
     /*
         +-------------+-----------------+------+-----+---------+----------------+
@@ -62,14 +63,8 @@ class BranchController extends Controller
         
         @check the validations.
     */          
-        $branch = Branch::create([
-            'location_id' => $request['location'],
-            'code' => $request['code'],
-            'name' => $request['name'],
-            'mobile' => $request['mobile_num'],
-            'address' => $request['address']
-
-        ]);
+      
+        $branch = Branch::create($request -> all());
         return redirect() -> route('branches.index');
     }
 
@@ -93,8 +88,8 @@ class BranchController extends Controller
      */
     public function edit(Branch $branch)
     {
-        $findBranch = Branch::find($branch);
-        return view('branches.edit',compact('findBranch'));
+        return view('branches.edit', compact('branch'));
+     
     }
 
     /**
@@ -104,9 +99,11 @@ class BranchController extends Controller
      * @param  \App\Models\Branch  $branch
      * @return Response
      */
-    public function update(BranchFormRequestValidation $request, Branch $branch)
+    public function update(Request $request, Branch $branch)
     {
-
+        $branch -> update($request -> all());
+        return redirect() -> route('branches.index');
+        
     }
 
     /**
@@ -117,6 +114,11 @@ class BranchController extends Controller
      */
     public function destroy(Branch $branch)
     {
-        //
+        #to delete a record, do the following
+        #get the user ID,
+        #Delete the user,
+        #REdirect the user the main Page
+        $branch -> delete();
+        return redirect() -> route("branches.index");
     }
 }

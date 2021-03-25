@@ -50,6 +50,14 @@ class Branch extends Model
     	);
     }
 
+    public static $rules = [
+        'location_id' => ['required','min:3','max:200'],
+        'code' => ['required','min:3','max:50'],
+        'name' => ['required','min:3','max:50'],
+        'mobile' => ['required','min:7','max:7',],
+        'address' => ['required','min:3','max:200']
+    ];
+    
 
     public function location(){
 

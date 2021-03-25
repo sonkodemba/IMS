@@ -37,6 +37,11 @@ class Department extends Model
     	'deleted_at'
     ];
 
+    public static $rules = [
+        'code' => ['required','min:3','max:50'],
+        'name' => ['required','min:3', 'max:50'],
+        'descriptions' => ['required','min:3','max:200']
+    ];
 
     public function users(){
 

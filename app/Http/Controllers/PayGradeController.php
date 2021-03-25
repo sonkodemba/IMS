@@ -14,7 +14,7 @@ class PayGradeController extends Controller
      */
     public function index()
     {
-        $grades = PayGrade::all();
+        $grades = PayGrade::latest() -> simplePaginate(5);
         return view('pay-grades.index', compact('grades'));
     }
 
@@ -36,7 +36,11 @@ class PayGradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        #get the validated rules from the corresponding model
+        request() -> validate(PayGrade::$rules);
+        PayGrade::create($request -> all());
+        return redirect() -> route('pay-grades.index');
+        
     }
 
     /**
@@ -58,7 +62,7 @@ class PayGradeController extends Controller
      */
     public function edit(PayGrade $payGrade)
     {
-        //
+        return view('pay-grades.edit', compact('payGrade'));
     }
 
     /**
@@ -70,7 +74,8 @@ class PayGradeController extends Controller
      */
     public function update(Request $request, PayGrade $payGrade)
     {
-        //
+        $payGrade -> update($request -> all());
+        return redirect() -> route('pay-grades.index');
     }
 
     /**

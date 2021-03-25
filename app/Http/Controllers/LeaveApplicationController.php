@@ -15,7 +15,7 @@ class LeaveApplicationController extends Controller
     public function index()
     {
         //
-        $leave_applications = LeaveApplication::all();
+        $leave_applications = LeaveApplication::latest() -> simplePaginate(5);
         return view('leave-applications.index', compact('leave_applications'));
     }
 
@@ -27,6 +27,7 @@ class LeaveApplicationController extends Controller
     public function create()
     {
         //
+        return view('leave-applications.create');
     }
 
     /**
@@ -37,7 +38,24 @@ class LeaveApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // +-------------------+-----------------+------+-----+---------+----------------+
+        // | Field             | Type            | Null | Key | Default | Extra          |
+        // +-------------------+-----------------+------+-----+---------+----------------+
+        // | id                | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+        // | staff_id          | bigint unsigned | NO   | MUL | NULL    |                |
+        // | leave_category_id | bigint unsigned | NO   |     | NULL    |                |
+        // | start_date        | date            | NO   |     | NULL    |                |
+        // | end_date          | date            | NO   |     | NULL    |                |
+        // | descriptions      | longtext        | NO   |     | NULL    |                |
+        // | deleted_at        | timestamp       | YES  |     | NULL    |                |
+        // | created_at        | timestamp       | YES  |     | NULL    |                |
+        // | updated_at        | timestamp       | YES  |     | NULL    |                |
+        // +-------------------+-----------------+------+-----+---------+----------------+
+
+
+        request() -> validate(LeaveApplication::$rules);
+        LeaveApplication::create($request -> all());
+        return redirect() -> route('leave-applications.index');
     }
 
     /**
@@ -48,7 +66,7 @@ class LeaveApplicationController extends Controller
      */
     public function show(LeaveApplication $leaveApplication)
     {
-        //
+        return view('leave-applications.show', compact('leaveApplication'));
     }
 
     /**
@@ -59,7 +77,7 @@ class LeaveApplicationController extends Controller
      */
     public function edit(LeaveApplication $leaveApplication)
     {
-        //
+        return view('leave-applications.edit', compact('leaveApplication'));
     }
 
     /**
@@ -71,7 +89,9 @@ class LeaveApplicationController extends Controller
      */
     public function update(Request $request, LeaveApplication $leaveApplication)
     {
-        //
+
+        $leaveApplication -> update($request -> all());
+        return redirect() -> route('leave-applications.index');
     }
 
     /**
@@ -83,5 +103,6 @@ class LeaveApplicationController extends Controller
     public function destroy(LeaveApplication $leaveApplication)
     {
         //
+        LeaveApplication::where($leaveApplication) -> delete();
     }
 }

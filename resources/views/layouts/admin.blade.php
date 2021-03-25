@@ -39,8 +39,6 @@
       </li>
       
     </ul>
-
-
     <!-- Right navbar links -->
     
   </nav>
@@ -50,7 +48,7 @@
   <aside class="main-sidebar sidebar-dark-red elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="{{asset('Images\logo\onclicktechnologies.png')}}" alt="AdminLTE Logo" class="brand-image img-rectangle elevation-3"
+      <img src="{{asset('Images\logo\Nawec.png')}}" alt="AdminLTE Logo" class="brand-image img-rectangle elevation-3"
            style="padding-top: all">
       <span class="brand-text font-weight-light" style="font-weight: 100; font-style: bolder">NanoTech</span>
     </a>

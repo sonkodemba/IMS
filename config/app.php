@@ -179,6 +179,14 @@ return [
             Drop down Services Providers
          */
         App\Providers\LocationProvider::class,
+        App\Providers\LeaveCategoryProvider::class,
+        App\Providers\UserGroupProvider::class,
+        App\Providers\GenderProvider::class,
+        App\Providers\DepartmentProvider::class,
+        App\Providers\DesignationProvider::class,
+        App\Providers\EmployeeCategoryProvider::class,
+        App\Providers\MaritalStatusProvider::class,
+        // App\Providers\EmployeeCategoryProvider::class,
 
         /*
             Adding SweetAlert Facade

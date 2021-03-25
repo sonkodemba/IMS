@@ -26,7 +26,13 @@ class LeaveApplication extends Model
   | updated_at        | timestamp       | YES  |     | NULL    |                |
   +-------------------+-----------------+------+-----+---------+----------------+
   */
-
+    public static $rules = [
+      'staff_id' => ['required', 'min:2','max:7'],
+      'leave_category_id' => ['required'],
+      'start_date' => ['required'],
+      'end_date' => ['required'],
+      'descriptions' => ['required', 'min:3','max:200']
+    ];
     protected $fillable = [
     	'staff_id',
     	'leave_category_id',

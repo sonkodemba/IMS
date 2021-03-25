@@ -12,41 +12,19 @@
            </i>
       </h1>
   </div>
+  {{-- {{var_dump($errors)}} --}}
   <form class="form-horizontal" action="{{route('locations.store')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="card-body">
           <div class="form-group row">
-              <label style="text-align: right; color: #0E0EFF" for="Code" class="col-sm-2 col-form-label">Code:</label>
-              <div class="col-sm-7 input-group input-group-sm">
-                  <div class="input-group-append">
-                      <input type="type" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="code" class="form-control" id="Name" >
-                  </div>
-              </div>
-          </div>
-
-          <div class="form-group row">
               <label style="text-align: right; color: #0E0EFF" for=" Code" class="col-sm-2 col-form-label">Name:</label>
               <div class="col-sm-7 input-group input-group-sm">
                   <div class="input-group-append">
-                      <input type="text" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="name" class="form-control" id="Name" >
+                      <input type="text" value="{{old('name')}}" style="background-color: lightyellow; font-size: 24px; font-family: sans-serif bold; color: red; font-weight: bolder;"  name="name" class="form-control" id="Name" >
+                      <span style="color:red; font-style: italic;">{{$errors -> first('name')}}<span>
 
                   </div>
               </div>
-          </div>
-        
-          <div class="form-group row">
-              <label style="text-align: right; color: #0E0EFF " for="Location" class="col-sm-2 col-form-label">Location:</label>
-              <div class="col-sm-6">
-                  <select name="location" id="location_id" class="form-control select2" style="background-color: lightyellow; font-size: 20px; font-family: sans-serif bold; color: red; font-weight: bolder;">
-                    <option selected="selected">-- Select Location --</option>
-                    <option>Alaska</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select>
-              </div>
-
           </div>
         
           <div class="form-group row">

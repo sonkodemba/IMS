@@ -66,6 +66,26 @@ class User extends Authenticatable
         'password',
     ];
 
+    public static $rules = [
+            'name' => ['required', 'string', 'max:255'],
+            'staff_id' => ['required','min:2', 'max:7', 'unique:users'],
+            'social_security_num' => ['required','min:2','max:7','unique:users'],
+            'mobile_num' => ['required','min:7','max:7','unique:users'],
+            'gender_id' => ['required'],
+            'marital_status_id' => ['required'],
+            'department_id' => ['required'],
+            'designation_id' => ['required'],
+            'branch_id' => 'required',
+            'pay_grade_id' => ['required'],
+            'employee_category_id' => ['required'],
+            'employee_education_id' => ['required'],
+            'user_group_id' => ['required'],
+            // 'profile_img' => ['required'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+
+
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *

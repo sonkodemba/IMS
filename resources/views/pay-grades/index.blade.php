@@ -78,7 +78,7 @@
         </tbody>
         @endforeach
     </table>
-             
+            {{$grades -> onEachSide(5)->links()}}    
     @endif
     </div>
         </div>

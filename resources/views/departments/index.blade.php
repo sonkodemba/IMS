@@ -12,7 +12,7 @@
                             <strong class="badge btn-outline-success float-left">
                             <i class="fa fa-home"> List of Departments</i>
                             </strong>
-                            <a class="btn btn-success float-md-right" href="{{route('branches.create')}}"><i class="fa fa-plus"></i></a>
+                            <a class="btn btn-success float-md-right" href="{{route('departments.create')}}"><i class="fa fa-plus"></i></a>
                         </h3>
                     </div>
 

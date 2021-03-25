@@ -25,6 +25,7 @@ class Location extends Model
     	'name',
     	'descriptions'
     ];
+    
     protected $hidden = [
     	'id',
     	'created_at',
@@ -32,6 +33,11 @@ class Location extends Model
     	'deleted_at'
     ];
 
+    public static $rules = [
+    	'name' => ['required','max:100', 'min:3'],
+    	'descriptions'=> ['required','min:3','max:200']
+
+	];
 
 	public function branches(){
 		return $this -> hasMany(

@@ -14,7 +14,8 @@ class MaritalStatusController extends Controller
      */
     public function index()
     {
-        //
+        $status = MaritalStatus::all();
+        return view('marital-statuses.index', compact('status'));
     }
 
     /**

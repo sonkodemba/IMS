@@ -6,13 +6,13 @@
     <div style="padding-top: 50px" class="alert alert-warning alert-dismissible fade show" role="alert">
       <h2 class="alert-heading">
         WARNING..!!
-        <a class="btn btn-success float-md-right" href="{{ route('register') }}">
+        <a class="btn btn-success float-md-right" href="{{ route('leave-applications.store') }}">
             <i class="fa fa-plus"> New </i>
         </a>
       </h2>
       <hr>
        <strong>There is No User Registered in This Platform.
-         Click on the Button to create New user.</strong>
+         Click on the Button to create New Leave Application.</strong>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
