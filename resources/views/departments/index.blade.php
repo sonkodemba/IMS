@@ -80,11 +80,19 @@
         			<a class="btn btn-success" href="{{ route('departments.edit', $department -> id) }}">
         				<i class="fa fa-pencil-alt"></i>
         			</a>
-        			<a class="btn btn-danger" href="{{ route('departments.destroy', $department -> id) }}">
-        				<i class="fa fa-trash-alt">
-        					
-        				</i>
+        			<a class="btn btn-danger" href="{{ route('departments.index') }}" 
+                       onclick="event.preventDefault();
+                        document.getElementById(
+                          'delete-fromDepartment-{{$department->id}}').submit();">
+                        <i class="fa fa-trash">
+                            
+                        </i> 
+                </a>
         			</a>
+                    <form id="delete-fromDepartment-{{$department -> id}}" action="{{ route('departments.destroy', $department -> id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    </form>
         		</td>
         	</tr>
         </tbody>
